@@ -1,0 +1,247 @@
+/* this stylesheet is used when generating a PDF with PrinceXML or any other tool that understands the CSS used. */
+/* define a page */
+@page {
+    size: 148mm 210mm;
+}
+
+img {
+    max-height: 210mm;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+div.contents{
+    page: contents;
+}
+
+div.frontcover, div.backcover {
+    page: cover;
+    position:relative;
+}
+
+.frontcover h2 {
+    margin: 0pt;
+    font-size: 42px;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 33%;
+    color: #444;
+    line-height: 100%;
+}
+
+div.projcover {
+    page: cover;
+    position:relative;
+}
+
+.projcover h2 {
+    margin: 0pt;
+    font-size: 32px;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    bottom: 64px;
+    color: #ccc;
+    line-height: 100%;
+}
+
+.projcover #author {
+    font-size: 24px;
+}
+
+.contents h2 {
+    margin: 0 0 20px 0;
+    font-size: 24px;
+    line-height: 100%;
+}
+
+.contents h3 {
+    margin: 20px 0 0 0;
+    font-size: 16px;
+    line-height: 100%;
+}
+
+@page:right{
+    margin: 20mm 20mm 20mm 40mm;
+    @right-middle{
+        margin: 0 10pt 0 10pt;
+        content: flow(notes);
+    }
+    @bottom-left {
+        margin: 10pt 0 30pt;
+        border-top: .25pt solid #666;
+        content: "XOXOXOLOLOLOL";
+        font-family: "Trebuchet MS", "Lucida Grande", sans-serif;
+        font-size: 11px;
+        color: #333;
+    }
+    @bottom-right { 
+        margin: 10pt 0 30pt;
+        border-top: .25pt solid #666;
+        content: counter(page);
+        font-family: "Trebuchet MS", "Lucida Grande", sans-serif;
+        font-size: 11px;
+        color: #333;
+    }
+    @top-left {
+        margin: 30pt 0 10pt;
+        border-bottom: .25pt solid #666;
+        content: string(doctitle);
+        font-family: "Trebuchet MS", "Lucida Grande", sans-serif;
+        font-size: 11px;
+        color: #333;
+    }
+}
+
+/* styles for the left hand spread 
+Bottom right book title, bottom left current page */
+@page:left {
+    margin: 20mm 40mm 20mm 20mm;
+    @left-middle{
+        margin: 0 10pt 0 10pt;
+        content: flow(notes);
+    }
+    @bottom-right {
+        margin: 10pt 0 30pt;
+        border-top: .25pt solid #666;
+        content: "XOXOXOLOLOLOL";
+        font-family: "Trebuchet MS", "Lucida Grande", sans-serif;
+        font-size: 11px;
+        color: #333;
+    }
+    @bottom-left { 
+        margin: 10pt 0 30pt;
+        border-top: .25pt solid #666;
+        content: counter(page);
+        font-family: "Trebuchet MS", "Lucida Grande", sans-serif;
+        font-size: 11px;
+    }
+    @top-right {
+        margin: 30pt 0 10pt;
+        border-bottom: .25pt solid #666;
+        content: string(doctitle);
+        font-family: "Trebuchet MS", "Lucida Grande", sans-serif;
+        font-size: 11px;
+        color: #333;
+    }
+}
+
+/* first page */
+@page cover {
+    margin: 0;
+    @bottom-right {
+        content: none;
+    }
+    @bottom-left {
+        content: none;
+    }
+    @top-right {
+        content: none;
+    }
+    @top-left {
+        content: none;
+    }
+    @left-middle{
+        content: none;
+    }
+    @right-middle{
+        content: none;
+    }
+}
+
+@page contents {
+    margin: 70pt 60pt;
+    @left-middle{
+        margin: 0;
+        content: none;
+    }
+    @right-middle{
+        margin: 0;
+        content: none;
+    }
+    @top-right {
+        content: none;
+    }
+    @top-left {
+        content: none;
+    }
+}
+
+div.chapter {
+    page: my-chapter;
+    prince-page-group: start;
+}
+
+@page my-chapter:first {
+    @top-right {
+        content: normal;
+    }
+    @top-left {
+        content: normal;
+    }    
+}
+
+/* reset chapter and figure counters on the body */
+body {
+    counter-reset: chapternum;
+    font-family: "Trebuchet MS", "Lucida Grande", sans-serif;
+    line-height: 1.5;
+    font-size: 12px;
+}
+
+.note {
+    flow: static(notes);
+    font-size: 10px;
+    color: grey;
+}
+.ne {
+    flow: static(notes);
+}
+
+/* get the title of the current chapter - this will be the content of the h1 
+reset figure counter as figures start from 1 in each chapter */
+h1.chapter-title {
+    string-set: doctitle content();
+    page-break-before: always;
+    line-height: 1.3;
+    font-size: 24px;
+}
+
+/* increment chapter counter */
+h1.chapter-title::before {
+    counter-increment: chapternum;
+}
+
+h1,h2,h3,h4,h5 {
+    font-weight: bold;
+    page-break-after: avoid;
+    page-break-inside:avoid;
+}
+
+h1+p, h2+p, h3+p {
+    page-break-before: avoid;
+}
+
+ul.toc {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* create page numbers using target-counter in the TOC */
+ul.toc a::after {
+    content: leader('.') target-counter(attr(href), page);
+}
+
+ul.toc li {
+    line-height: 2;
+}
+
+ul.toc li a {
+    text-decoration: none;
+}
+
+a {
+    color: #000;
+}
