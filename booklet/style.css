@@ -1,11 +1,11 @@
 /* this stylesheet is used when generating a PDF with PrinceXML or any other tool that understands the CSS used. */
 /* define a page */
 @page {
-    size: 148mm 210mm;
+    size: 105mm 148mm;
 }
 
 img {
-    max-height: 210mm;
+    max-height: 105mm;
     margin-left: 50%;
     transform: translateX(-50%);
 }
@@ -21,7 +21,7 @@ div.frontcover, div.backcover {
 
 .frontcover h2 {
     margin: 0pt;
-    font-size: 42px;
+    font-size: 32px;
     position: absolute;
     width: 100%;
     text-align: center;
@@ -37,23 +37,27 @@ div.projcover {
 
 .projcover h2 {
     margin: 0pt;
-    font-size: 32px;
-    text-align: center;
+    font-size: 24px;
     position: absolute;
     width: 100%;
-    bottom: 64px;
+    text-align: center;
+    bottom: 48px;
     color: #ccc;
     line-height: 100%;
 }
 
 .projcover #author {
-    font-size: 24px;
+    font-size: 16px;
 }
 
 .contents h2 {
     margin: 0 0 20px 0;
     font-size: 24px;
     line-height: 100%;
+}
+
+.contents li {
+    font-size: 11px;
 }
 
 .contents h3 {
@@ -63,33 +67,33 @@ div.projcover {
 }
 
 @page:right{
-    margin: 20mm 20mm 20mm 40mm;
+    margin: 20mm 15mm 20mm 30mm;
     @right-middle{
         margin: 0 10pt 0 10pt;
         content: flow(notes);
     }
     @bottom-left {
-        margin: 10pt 0 30pt;
+        margin: 10pt 0 20pt;
         border-top: .25pt solid #666;
         content: "XOXOXOLOLOLOL";
         font-family: "Trebuchet MS", "Lucida Grande", sans-serif;
-        font-size: 11px;
+        font-size: 9px;
         color: #333;
     }
     @bottom-right { 
-        margin: 10pt 0 30pt;
+        margin: 10pt 0 20pt;
         border-top: .25pt solid #666;
         content: counter(page);
         font-family: "Trebuchet MS", "Lucida Grande", sans-serif;
-        font-size: 11px;
+        font-size: 9px;
         color: #333;
     }
     @top-left {
-        margin: 30pt 0 10pt;
+        margin: 20pt 0 10pt;
         border-bottom: .25pt solid #666;
         content: string(doctitle);
         font-family: "Trebuchet MS", "Lucida Grande", sans-serif;
-        font-size: 11px;
+        font-size: 9px;
         color: #333;
     }
 }
@@ -97,32 +101,32 @@ div.projcover {
 /* styles for the left hand spread 
 Bottom right book title, bottom left current page */
 @page:left {
-    margin: 20mm 40mm 20mm 20mm;
+    margin: 20mm 30mm 20mm 15mm;
     @left-middle{
         margin: 0 10pt 0 10pt;
         content: flow(notes);
     }
     @bottom-right {
-        margin: 10pt 0 30pt;
+        margin: 10pt 0 20pt;
         border-top: .25pt solid #666;
         content: "XOXOXOLOLOLOL";
         font-family: "Trebuchet MS", "Lucida Grande", sans-serif;
-        font-size: 11px;
+        font-size: 9px;
         color: #333;
     }
     @bottom-left { 
-        margin: 10pt 0 30pt;
+        margin: 10pt 0 20pt;
         border-top: .25pt solid #666;
         content: counter(page);
         font-family: "Trebuchet MS", "Lucida Grande", sans-serif;
-        font-size: 11px;
+        font-size: 9px;
     }
     @top-right {
-        margin: 30pt 0 10pt;
+        margin: 20pt 0 10pt;
         border-bottom: .25pt solid #666;
         content: string(doctitle);
         font-family: "Trebuchet MS", "Lucida Grande", sans-serif;
-        font-size: 11px;
+        font-size: 9px;
         color: #333;
     }
 }
@@ -151,7 +155,7 @@ Bottom right book title, bottom left current page */
 }
 
 @page contents {
-    margin: 70pt 60pt;
+    margin: 70pt 15mm;
     @left-middle{
         margin: 0;
         content: none;
@@ -169,6 +173,7 @@ Bottom right book title, bottom left current page */
 }
 
 div.chapter {
+    font-size: 11px;
     page: my-chapter;
     prince-page-group: start;
 }
@@ -187,12 +192,12 @@ body {
     counter-reset: chapternum;
     font-family: "Trebuchet MS", "Lucida Grande", sans-serif;
     line-height: 1.5;
-    font-size: 12px;
+    font-size: 10px;
 }
 
 .note {
     flow: static(notes);
-    font-size: 10px;
+    font-size: 8px;
     color: grey;
 }
 .ne {
@@ -205,7 +210,7 @@ h1.chapter-title {
     string-set: doctitle content();
     page-break-before: always;
     line-height: 1.3;
-    font-size: 24px;
+    font-size: 18px;
 }
 
 /* increment chapter counter */
@@ -216,7 +221,7 @@ h1.chapter-title::before {
 h1,h2,h3,h4,h5 {
     font-weight: bold;
     page-break-after: avoid;
-    page-break-inside:avoid;
+    page-break-inside: avoid;
 }
 
 h1+p, h2+p, h3+p {
