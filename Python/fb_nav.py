@@ -95,8 +95,6 @@ def loadChoseAndScrollFriends():
     # chose friends and go to profiles
     for w in mDriver.window_handles:
         mDriver.switch_to_window(w)
-        #mDriver.execute_script("window.scrollTo(0, 0);")
-        sleep(0.5)
         friendList = mDriver.find_elements_by_xpath("//div[@class='fsl fwb fcb']")
         bffLink = friendList[randint(0,len(friendList)-1)]
         mDriver.execute_script("window.scrollTo(%s, %s);"%(bffLink.location['x'], bffLink.location['y']-100))
@@ -111,14 +109,20 @@ def loadChoseAndScrollFriends():
                 bodyWidth = mDriver.execute_script("return document.body.scrollWidth;")
                 bodyHeight = mDriver.execute_script("return document.body.scrollHeight;")
                 mDriver.execute_script("window.scrollTo(%s, %s);"%(randint(bodyWidth/8,bodyWidth/2), randint(0,bodyHeight)))
-                # everyone in a while like something
+
+                # like something everyonce in a while
                 if(uniform(0.0, 1.0) > 0.7):
                     likeLinks = mDriver.find_elements_by_xpath("//a[@data-testid='fb-ufi-likelink']")
                     if(len(likeLinks) > 1):
                         superLike = likeLinks[randint(0,len(likeLinks)-1)]
                         ActionChains(mDriver).move_to_element(superLike).perform()
-                        # TODO: click ?!?
+                        # TODO: click
                         sleep(0.5)
+
+                # post a comment everyonce in a while
+                if(uniform(0.0, 1.0) > 1.9):
+                    # TODO: get comment boxes, enter text, send
+                    sleep(0.5)
                 sleep(0.1)
 
 def backToFriends():
@@ -133,12 +137,12 @@ def backToFriends():
         sleep(0.1)
 
 def splitWindows():
-    # TODO: change this
+    # TODO: change this for all windows
     mDriver.switch_to_window(mDriver.window_handles[0])
 
     # get width/height and position
     #windowWidth = mDriver.execute_script("return window.innerWidth;")
-    #windowHeight = mDriver.execute_script("return window.innerHeight;")+72
+    #windowHeight = mDriver.execute_script("return window.innerHeight;")
     windowX = mDriver.execute_script("return window.screenX;")
     #windowY = mDriver.execute_script("return window.screenY;")
 
@@ -155,7 +159,6 @@ def splitWindows():
         mDriver.set_window_position(windowX, i*(SCREEN_HEIGHT/2)+5)
         mDriver.switch_to_window(mDriver.window_handles[0])
         sleep(0.5)
-    sleep(1)
 
     # close original window
     mDriver.switch_to_window(mDriver.window_handles[0])
