@@ -132,8 +132,37 @@ def backToFriends():
         mDriver.execute_script("window.scrollTo(%s, %s);"%(randint(bodyWidth/8,bodyWidth/2), randint(0,bodyHeight)))
         sleep(0.1)
 
+def splitWindows():
+    # TODO: change this
+    mDriver.switch_to_window(mDriver.window_handles[0])
 
+    # get width/height and position
+    #windowWidth = mDriver.execute_script("return window.innerWidth;")
+    #windowHeight = mDriver.execute_script("return window.innerHeight;")+72
+    windowX = mDriver.execute_script("return window.screenX;")
+    #windowY = mDriver.execute_script("return window.screenY;")
+
+    # find friend list link
+    friendLink = mDriver.find_element_by_xpath("//a[@data-tab-key='friends']")
+    mDriver.execute_script("window.scrollTo(%s, %s);"%(friendLink.location['x'], friendLink.location['y']-50))
+
+    for i in range(2):
+        ActionChains(mDriver).key_down(Keys.SHIFT).click(friendLink).key_up(Keys.SHIFT).perform()
+
+        # huge hack to resize on creation. wtf. seriously?!?
+        mDriver.switch_to_window(mDriver.window_handles[-1])
+        mDriver.set_window_size(SCREEN_WIDTH/3, SCREEN_HEIGHT/2-10)
+        mDriver.set_window_position(windowX, i*(SCREEN_HEIGHT/2)+5)
+        mDriver.switch_to_window(mDriver.window_handles[0])
+        sleep(0.5)
+    sleep(1)
+
+    # close original window
+    mDriver.switch_to_window(mDriver.window_handles[0])
+    mDriver.close()
+
+'''
 for i in range(8):
     loadChoseAndScrollFriends()
     backToFriends()
-
+'''
