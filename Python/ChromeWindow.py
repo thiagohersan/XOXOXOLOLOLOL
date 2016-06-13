@@ -13,8 +13,8 @@ class State:
     (Home, Profile, FriendList) = range(3)
 
 class ChromeWindow:
-    SCREEN_WIDTH = 1280
-    SCREEN_HEIGHT = 800-24
+    SCREEN_WIDTH = None
+    SCREEN_HEIGHT = None
 
     cDriver = None
     profileHref = None
@@ -27,6 +27,8 @@ class ChromeWindow:
         #mOptions.add_argument("window-size=%s,%s"%(SCREEN_WIDTH,SCREEN_HEIGHT))
         #mOptions.add_argument("window-position=0,0")
         ChromeWindow.cDriver = webdriver.Chrome(chrome_options=mOptions)
+        ChromeWindow.SCREEN_WIDTH = ChromeWindow.cDriver.execute_script("return screen.width;")
+        ChromeWindow.SCREEN_HEIGHT = ChromeWindow.cDriver.execute_script("return screen.height;")-24
         ChromeWindow.cDriver.set_window_size(ChromeWindow.SCREEN_WIDTH, ChromeWindow.SCREEN_HEIGHT)
         ChromeWindow.cDriver.set_window_position(0,0)
 
@@ -83,6 +85,10 @@ class ChromeWindow:
         #   step()
         pass
 
+    @staticmethod
+    def quit():
+        ChromeWindow.cDriver.quit()
+
     def step(self):
         ChromeWindow.cDriver.switch_to_window(self.window_handle)
         if(self.state == State.Home):
@@ -95,6 +101,8 @@ class ChromeWindow:
                 if(uniform(0.0,1.0) > 0.8):
                     print "      going to spawn"
                     self.spawn()
+                    # TODO: clean up parent window
+                    # TODO: delete object
                     # ChromeWindow.cDriver.switch_to_window(self.window_handle)
                     # ChromeWindow.cDriver.close()
                 else:
