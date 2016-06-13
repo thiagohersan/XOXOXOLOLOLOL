@@ -105,21 +105,21 @@ class ChromeWindow:
             print "state home, going to my profile"
             self.goToMyProfile()
         elif(self.state == State.MyProfile):
-            print "state my profile, going to friendlist"
-            self.goToFriendList()
+            print "state myprofile"
+            if(uniform(0.0,1.0) > 0.8):
+                print "   going to spawn"
+                self.spawn()
+                # TODO: clean up parent window and delete object
+                # ChromeWindow.cDriver.switch_to_window(self.window_handle)
+                # ChromeWindow.cDriver.close()
+            else:
+                print "   going to friend list"
+                self.goToFriendList()
         elif(self.state == State.Profile):
             print "state profile"
             if(uniform(0.0,1.0) > 0.95):
-                print "   going to friend list or spawn"
-                if(uniform(0.0,1.0) > 0.8):
-                    print "      going to spawn"
-                    self.spawn()
-                    # TODO: clean up parent window and delete object
-                    # ChromeWindow.cDriver.switch_to_window(self.window_handle)
-                    # ChromeWindow.cDriver.close()
-                else:
-                    print "      going to friend list"
-                    self.goToMyProfile()
+                print "   going back to myprofile"
+                self.goToMyProfile()
             elif(uniform(0.0,1.0) > 0.9):
                 print "   comment"
                 self.postComment()
@@ -130,9 +130,9 @@ class ChromeWindow:
                 print "   scroll"
                 self.scrollProfile()
         elif(self.state == State.FriendList):
-            print "friendlist"
+            print "state friendlist"
             if (uniform(0.0,1.0) > 0.1):
-                print "   load scroll"
+                print "   load/scroll"
                 self.loadFriends()
             else:
                 print "   going to friend"
@@ -148,7 +148,9 @@ class ChromeWindow:
         friendList = ChromeWindow.cDriver.find_elements_by_xpath("//div[@class='fsl fwb fcb']")
         bffLink = choice(friendList)
         ChromeWindow.cDriver.execute_script("window.scrollTo(%s, %s);"%(bffLink.location['x'], bffLink.location['y']-100))
+        sleep(0.1)
         bffLink.click()
+        # TODO: investigate and make sure it always goes to a friend
         self.state = State.Profile
 
     def scrollProfile(self):
@@ -185,19 +187,19 @@ class ChromeWindow:
                     sleep(uniform(0.1, 0.3))
                 sleep(0.5)
                 #commentBoxText.send_keys(Keys.ENTER)
-                bodyWidth = ChromeWindow.cDriver.execute_script("return document.body.scrollWidth;")
-                bodyHeight = ChromeWindow.cDriver.execute_script("return document.body.scrollHeight;")
-                ChromeWindow.cDriver.execute_script("window.scrollTo(%s, %s);"%(bodyWidth/2, randint(600, bodyHeight)))
+                offsetX = ChromeWindow.cDriver.execute_script("return window.pageXOffset;")
+                offsetY = ChromeWindow.cDriver.execute_script("return window.pageYOffset;")
+                windowHeight = ChromeWindow.cDriver.execute_script("return window.innerHeight;")
+                ChromeWindow.cDriver.execute_script("window.scrollTo(%s, %s);"%(offsetX, offsetY+windowHeight))
                 for i in range(16):
                     commentBoxText.send_keys(Keys.BACKSPACE)
         except Exception as e:
             print "comment exception (???)"
-            pass
 
     def spawn(self):
         # TODO: spawn
         #   make sure spawns get correct state (FriendList)
-        self.goToMyProfile()
+        self.goToFriendList()
 
     def goToMyProfile(self):
         ChromeWindow.cDriver.switch_to_window(self.window_handle)
