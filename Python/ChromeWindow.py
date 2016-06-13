@@ -2,15 +2,23 @@
 # -*- coding: utf-8 -*-
 
 from time import sleep
-from random import uniform, randint
+from random import uniform, randint, choice
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver import ActionChains
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
+
+COMMENTS = ["#FORATEMER",
+            "LOL",
+            "XOXO",
+            "XOXOXOLOLOLOL"]
 
 class State:
-    (Home, Profile, FriendList) = range(3)
+    (Home, MyProfile, Profile, FriendList) = range(4)
 
 class ChromeWindow:
     SCREEN_WIDTH = None
@@ -24,8 +32,6 @@ class ChromeWindow:
     def __init__driver__():
         mOptions = Options()
         mOptions.add_argument("user-data-dir=./chromeSettings/")
-        #mOptions.add_argument("window-size=%s,%s"%(SCREEN_WIDTH,SCREEN_HEIGHT))
-        #mOptions.add_argument("window-position=0,0")
         ChromeWindow.cDriver = webdriver.Chrome(chrome_options=mOptions)
         ChromeWindow.SCREEN_WIDTH = ChromeWindow.cDriver.execute_script("return screen.width;")
         ChromeWindow.SCREEN_HEIGHT = ChromeWindow.cDriver.execute_script("return screen.height;")-24
@@ -52,13 +58,18 @@ class ChromeWindow:
             emailBox = ChromeWindow.cDriver.find_element_by_name('email')
             passwordBox = ChromeWindow.cDriver.find_element_by_name('pass')
         except NoSuchElementException:
-            ChromeWindow.cDriver.find_element_by_xpath("//a[@aria-labelledby='userNavigationLabel']").click()
-            sleep(2)
-            ChromeWindow.cDriver.find_element_by_xpath("//form[@action='https://www.facebook.com/logout.php']").submit()
-            sleep(2)
+            expectedMenu = EC.presence_of_element_located((By.XPATH, "//a[@aria-labelledby='userNavigationLabel']"))
+            navigationMenu = WebDriverWait(ChromeWindow.cDriver, 2, 0.2).until(expectedMenu)
+            navigationMenu.click()
+
+            expectedForm = EC.presence_of_element_located((By.XPATH, "//form[@action='https://www.facebook.com/logout.php']"))
+            logoutForm = WebDriverWait(ChromeWindow.cDriver, 2, 0.2).until(expectedForm)
+            logoutForm.submit()
         finally:
-            emailBox = ChromeWindow.cDriver.find_element_by_name('email')
-            passwordBox = ChromeWindow.cDriver.find_element_by_name('pass')
+            expectedEmail = EC.presence_of_element_located((By.NAME, "email"))
+            emailBox = WebDriverWait(ChromeWindow.cDriver, 2, 0.2).until(expectedEmail)
+            expectedPass = EC.presence_of_element_located((By.NAME, "pass"))
+            passwordBox = WebDriverWait(ChromeWindow.cDriver, 2, 0.2).until(expectedPass)
 
         # read login/password from file
         secrets = {}
@@ -75,8 +86,7 @@ class ChromeWindow:
             for c in secrets['PASSWORD']:
                 passwordBox.send_keys(c)
                 sleep(uniform(0.1, 0.3))
-
-            passwordBox.submit()
+            passwordBox.send_keys(Keys.ENTER)
 
 
     @staticmethod
@@ -92,7 +102,10 @@ class ChromeWindow:
     def step(self):
         ChromeWindow.cDriver.switch_to_window(self.window_handle)
         if(self.state == State.Home):
-            print "state home, going to friend list"
+            print "state home, going to my profile"
+            self.goToMyProfile()
+        elif(self.state == State.MyProfile):
+            print "state my profile, going to friendlist"
             self.goToFriendList()
         elif(self.state == State.Profile):
             print "state profile"
@@ -101,26 +114,24 @@ class ChromeWindow:
                 if(uniform(0.0,1.0) > 0.8):
                     print "      going to spawn"
                     self.spawn()
-                    # TODO: clean up parent window
-                    # TODO: delete object
+                    # TODO: clean up parent window and delete object
                     # ChromeWindow.cDriver.switch_to_window(self.window_handle)
                     # ChromeWindow.cDriver.close()
                 else:
                     print "      going to friend list"
-                    self.goToFriendList()
+                    self.goToMyProfile()
             elif(uniform(0.0,1.0) > 0.9):
                 print "   comment"
                 self.postComment()
             elif(uniform(0.0,1.0) > 0.8):
                 print "   like"
                 self.likePost()
-                sleep(0.4)
             else:
                 print "   scroll"
                 self.scrollProfile()
         elif(self.state == State.FriendList):
             print "friendlist"
-            if (uniform(0.0,1.0) > 0.05):
+            if (uniform(0.0,1.0) > 0.1):
                 print "   load scroll"
                 self.loadFriends()
             else:
@@ -135,7 +146,7 @@ class ChromeWindow:
 
     def goToFriend(self):
         friendList = ChromeWindow.cDriver.find_elements_by_xpath("//div[@class='fsl fwb fcb']")
-        bffLink = friendList[randint(0,len(friendList)-1)]
+        bffLink = choice(friendList)
         ChromeWindow.cDriver.execute_script("window.scrollTo(%s, %s);"%(bffLink.location['x'], bffLink.location['y']-100))
         bffLink.click()
         self.state = State.Profile
@@ -150,20 +161,45 @@ class ChromeWindow:
     def likePost(self):
         likeLinks = ChromeWindow.cDriver.find_elements_by_xpath("//a[@data-testid='fb-ufi-likelink']")
         if(len(likeLinks) > 1):
-            superLike = likeLinks[randint(0,len(likeLinks)-1)]
+            superLike = choice(likeLinks)
+            windowHeightCenter = ChromeWindow.cDriver.execute_script("return window.innerHeight;")/2
+            ChromeWindow.cDriver.execute_script("window.scrollTo(0, %s);"%(superLike.location['y']-windowHeightCenter))
             ActionChains(ChromeWindow.cDriver).move_to_element(superLike).perform()
-            # TODO: click
+            sleep(0.5)
+            #superLike.click()
+            #sleep(0.5)
 
     def postComment(self):
-        # TODO: get comment boxes/box, enter text, send
-        pass
+        try:
+            commentForms = ChromeWindow.cDriver.find_elements_by_xpath("//div[@class='UFICommentContainer']")
+            if(len(commentForms) > 1):
+                commentBox = choice(commentForms)
+                windowHeightCenter = ChromeWindow.cDriver.execute_script("return window.innerHeight;")/2
+                ChromeWindow.cDriver.execute_script("window.scrollTo(0, %s);"%(commentBox.location['y']-windowHeightCenter))
+                commentBox.click()
+                expectedTextBox = EC.presence_of_element_located((By.XPATH, "//div[@data-testid='ufi_comment_composer']"))
+                commentBoxText = WebDriverWait(ChromeWindow.cDriver, 1, 0.1).until(expectedTextBox)
+                sleep(0.1)
+                for c in choice(COMMENTS):
+                    commentBoxText.send_keys(c)
+                    sleep(uniform(0.1, 0.3))
+                sleep(0.5)
+                #commentBoxText.send_keys(Keys.ENTER)
+                bodyWidth = ChromeWindow.cDriver.execute_script("return document.body.scrollWidth;")
+                bodyHeight = ChromeWindow.cDriver.execute_script("return document.body.scrollHeight;")
+                ChromeWindow.cDriver.execute_script("window.scrollTo(%s, %s);"%(bodyWidth/2, randint(600, bodyHeight)))
+                for i in range(16):
+                    commentBoxText.send_keys(Keys.BACKSPACE)
+        except Exception as e:
+            print "comment exception (???)"
+            pass
 
     def spawn(self):
         # TODO: spawn
         #   make sure spawns get correct state (FriendList)
-        self.goToFriendList()
+        self.goToMyProfile()
 
-    def goToProfile(self):
+    def goToMyProfile(self):
         ChromeWindow.cDriver.switch_to_window(self.window_handle)
         try:
             profileLink = ChromeWindow.__get__profile__element__()
@@ -171,18 +207,24 @@ class ChromeWindow:
             ChromeWindow.cDriver.get('http://www.facebook.com')
         finally:
             profileLink = ChromeWindow.__get__profile__element__()
-        ActionChains(ChromeWindow.cDriver).click(profileLink).perform()
-        self.state = State.Profile
+        ChromeWindow.cDriver.get(ChromeWindow.profileHref)
+        self.state = State.MyProfile
 
     def goToFriendList(self):
         ChromeWindow.cDriver.switch_to_window(self.window_handle)
-        self.goToProfile()
-        friendLink = ChromeWindow.__get__friends__element__()
+        try:
+            friendLink = ChromeWindow.__get__friends__element__()
+        except NoSuchElementException:
+            self.state = State.Home
+            return
+        finally:
+            friendLink = ChromeWindow.__get__friends__element__()
+
         ChromeWindow.cDriver.execute_script("window.scrollTo(%s, %s);"%(friendLink.location['x'], friendLink.location['y']-50))
         ActionChains(ChromeWindow.cDriver).click(friendLink).perform()
         self.state = State.FriendList
 
-    def __init__(self, x,y, w,h):
+    def __init__(self, x=0,y=0, w=1,h=1):
         if(ChromeWindow.cDriver is None):
             ChromeWindow.__init__driver__()
 
