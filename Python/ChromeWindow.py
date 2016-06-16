@@ -26,7 +26,6 @@ class ChromeWindow:
 
     cDriver = None
     profileHref = None
-    friendHref = None
 
     windows = []
 
@@ -39,18 +38,6 @@ class ChromeWindow:
         ChromeWindow.SCREEN_HEIGHT = ChromeWindow.cDriver.execute_script("return screen.height;")-24
         ChromeWindow.cDriver.set_window_size(ChromeWindow.SCREEN_WIDTH, ChromeWindow.SCREEN_HEIGHT)
         ChromeWindow.cDriver.set_window_position(0,0)
-
-    @staticmethod
-    def __get__profile__element__():
-        profileElement = ChromeWindow.cDriver.find_element_by_xpath("//a[@data-testid='blue_bar_profile_link']")
-        ChromeWindow.profileHref = profileElement.get_attribute('href')
-        return profileElement
-
-    @staticmethod
-    def __get__friends__element__():
-        friendElement = ChromeWindow.cDriver.find_element_by_xpath("//a[@data-tab-key='friends']")
-        ChromeWindow.friendHref = friendElement.get_attribute('href')
-        return friendElement
 
     @staticmethod
     def loginToFacebook():
@@ -89,6 +76,8 @@ class ChromeWindow:
                 sleep(uniform(0.1, 0.3))
             passwordBox.send_keys(Keys.ENTER)
 
+            # get profile href
+            ChromeWindow.profileHref = ChromeWindow.cDriver.find_element_by_xpath("//a[@data-testid='blue_bar_profile_link']").get_attribute('href')
 
     @staticmethod
     def run():
@@ -258,27 +247,19 @@ class ChromeWindow:
 
     def goToMyProfile(self):
         ChromeWindow.cDriver.switch_to_window(self.window_handle)
-        try:
-            profileLink = ChromeWindow.__get__profile__element__()
-        except NoSuchElementException:
-            ChromeWindow.cDriver.get('http://www.facebook.com')
-        finally:
-            profileLink = ChromeWindow.__get__profile__element__()
         ChromeWindow.cDriver.get(ChromeWindow.profileHref)
         self.state = State.MyProfile
 
     def goToFriendList(self):
         ChromeWindow.cDriver.switch_to_window(self.window_handle)
         try:
-            friendLink = ChromeWindow.__get__friends__element__()
+            friendElement = ChromeWindow.cDriver.find_element_by_xpath("//a[@data-tab-key='friends']")
         except NoSuchElementException:
             self.state = State.Home
             return
-        finally:
-            friendLink = ChromeWindow.__get__friends__element__()
 
-        ChromeWindow.cDriver.execute_script("window.scrollTo(%s, %s);"%(friendLink.location['x'], friendLink.location['y']-50))
-        ActionChains(ChromeWindow.cDriver).click(friendLink).perform()
+        ChromeWindow.cDriver.execute_script("window.scrollTo(%s, %s);"%(friendElement.location['x'], friendElement.location['y']-50))
+        ActionChains(ChromeWindow.cDriver).click(friendElement).perform()
         self.state = State.FriendList
 
     def __init__(self, x=0,y=0, w=3,h=3):
