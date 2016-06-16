@@ -194,21 +194,20 @@ class ChromeWindow:
         except Exception as e:
             print "comment exception (???)"
 
-    def spawn(self):
-        # TODO: TEST
+    def spawn(self, spawnElementXPath="//a[@data-tab-key='friends']"):
         # IMPORTANT:
         #     assumes current window is the window to be spawned and closed
         #     assumes we're in State.myProfile
         SCREEN_WIDTH = ChromeWindow.SCREEN_WIDTH
         SCREEN_HEIGHT = ChromeWindow.SCREEN_HEIGHT
-        friendElement = ChromeWindow.cDriver.find_element_by_xpath("//a[@data-tab-key='friends']")
+        spawnElement = ChromeWindow.cDriver.find_element_by_xpath(spawnElementXPath)
 
         # break vertically
         if (self.w >= self.h) and (self.w > 1):
             w0 = choice(range(1, self.w))
             w1 = self.w - w0
 
-            ActionChains(ChromeWindow.cDriver).key_down(Keys.SHIFT).click(friendElement).key_up(Keys.SHIFT).perform()
+            ActionChains(ChromeWindow.cDriver).key_down(Keys.SHIFT).click(spawnElement).key_up(Keys.SHIFT).perform()
             window0 = ChromeWindow(self.x, self.y, w0, self.h)
             ChromeWindow.cDriver.switch_to_window(ChromeWindow.cDriver.window_handles[-1])
             ChromeWindow.cDriver.set_window_size(w0*SCREEN_WIDTH/3, self.h*SCREEN_HEIGHT/3-10)
@@ -216,7 +215,7 @@ class ChromeWindow:
             ChromeWindow.cDriver.switch_to_window(self.window_handle)
             sleep(0.5)
 
-            ActionChains(ChromeWindow.cDriver).key_down(Keys.SHIFT).click(friendElement).key_up(Keys.SHIFT).perform()
+            ActionChains(ChromeWindow.cDriver).key_down(Keys.SHIFT).click(spawnElement).key_up(Keys.SHIFT).perform()
             window1 = ChromeWindow(self.x+w0, self.y, w1, self.h)
             ChromeWindow.cDriver.switch_to_window(ChromeWindow.cDriver.window_handles[-1])
             ChromeWindow.cDriver.set_window_size(w1*SCREEN_WIDTH/3, self.h*SCREEN_HEIGHT/3-10)
@@ -235,7 +234,7 @@ class ChromeWindow:
             h0 = choice(range(1, self.h))
             h1 = self.h - h0
 
-            ActionChains(ChromeWindow.cDriver).key_down(Keys.SHIFT).click(friendElement).key_up(Keys.SHIFT).perform()
+            ActionChains(ChromeWindow.cDriver).key_down(Keys.SHIFT).click(spawnElement).key_up(Keys.SHIFT).perform()
             window0 = ChromeWindow(self.x, self.y, self.w, h0)
             ChromeWindow.cDriver.switch_to_window(ChromeWindow.cDriver.window_handles[-1])
             ChromeWindow.cDriver.set_window_size(self.w*SCREEN_WIDTH/3, h0*SCREEN_HEIGHT/3-10)
@@ -243,7 +242,7 @@ class ChromeWindow:
             ChromeWindow.cDriver.switch_to_window(self.window_handle)
             sleep(0.5)
 
-            ActionChains(ChromeWindow.cDriver).key_down(Keys.SHIFT).click(friendElement).key_up(Keys.SHIFT).perform()
+            ActionChains(ChromeWindow.cDriver).key_down(Keys.SHIFT).click(spawnElement).key_up(Keys.SHIFT).perform()
             window1 = ChromeWindow(self.x, self.y+h0, self.w, h1)
             ChromeWindow.cDriver.switch_to_window(ChromeWindow.cDriver.window_handles[-1])
             ChromeWindow.cDriver.set_window_size(self.w*SCREEN_WIDTH/3, h1*SCREEN_HEIGHT/3-10)
