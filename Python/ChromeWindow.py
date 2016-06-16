@@ -137,7 +137,7 @@ class ChromeWindow:
                 self.goToFriend()
 
     def loadFriends(self):
-        if (uniform(0.0,1.0) > 0.5):
+        if (uniform(0.0,1.0) > 0.3):
             bodyWidth = ChromeWindow.cDriver.execute_script("return document.body.scrollWidth;")
             bodyHeight = ChromeWindow.cDriver.execute_script("return document.body.scrollHeight;")
             ChromeWindow.cDriver.execute_script("window.scrollTo(%s, %s);"%(randint(bodyWidth/5,bodyWidth/2), bodyHeight))
