@@ -55,7 +55,6 @@ class ChromeWindow:
     @staticmethod
     def loginToFacebook():
         ChromeWindow.cDriver.get('http://www.facebook.com')
-        # get sign in boxes
         try:
             emailBox = ChromeWindow.cDriver.find_element_by_name('email')
             passwordBox = ChromeWindow.cDriver.find_element_by_name('pass')
@@ -93,7 +92,6 @@ class ChromeWindow:
 
     @staticmethod
     def run():
-        # TODO: TEST
         for w in ChromeWindow.windows:
             w.step()
 
@@ -110,11 +108,8 @@ class ChromeWindow:
             print "state myprofile"
             if(uniform(0.0,1.0) > 0.8):
                 print "   going to spawn"
-                # TODO: TEST
-                self.spawn()
-                ChromeWindow.cDriver.switch_to_window(self.window_handle)
-                ChromeWindow.cDriver.close()
-                ChromeWindow.windows.remove(self)
+                #self.spawn()
+                self.goToFriendList()
             else:
                 print "   going to friend list"
                 self.goToFriendList()
@@ -249,6 +244,10 @@ class ChromeWindow:
             ChromeWindow.cDriver.set_window_position(self.x*SCREEN_WIDTH/3, (self.y+h0)*SCREEN_HEIGHT/3-10)
             ChromeWindow.cDriver.switch_to_window(self.window_handle)
             sleep(0.5)
+
+        ChromeWindow.cDriver.switch_to_window(self.window_handle)
+        ChromeWindow.cDriver.close()
+        ChromeWindow.windows.remove(self)
 
     def goToMyProfile(self):
         ChromeWindow.cDriver.switch_to_window(self.window_handle)
