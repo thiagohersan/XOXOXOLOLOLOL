@@ -245,6 +245,8 @@ class ChromeWindow:
             ChromeWindow.cDriver.switch_to_window(self.window_handle)
             sleep(0.5)
 
+        window0.state = State.FriendList
+        window1.state = State.FriendList
         ChromeWindow.cDriver.switch_to_window(self.window_handle)
         ChromeWindow.cDriver.close()
         ChromeWindow.windows.remove(self)
