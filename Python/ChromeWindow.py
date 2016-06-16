@@ -224,6 +224,12 @@ class ChromeWindow:
             ChromeWindow.cDriver.switch_to_window(self.window_handle)
             sleep(0.5)
 
+            window0.state = State.FriendList
+            window1.state = State.FriendList
+            ChromeWindow.cDriver.switch_to_window(self.window_handle)
+            ChromeWindow.cDriver.close()
+            ChromeWindow.windows.remove(self)
+
         # break horizontally
         elif (self.h > 1):
             h0 = choice(range(1, self.h))
@@ -245,11 +251,11 @@ class ChromeWindow:
             ChromeWindow.cDriver.switch_to_window(self.window_handle)
             sleep(0.5)
 
-        window0.state = State.FriendList
-        window1.state = State.FriendList
-        ChromeWindow.cDriver.switch_to_window(self.window_handle)
-        ChromeWindow.cDriver.close()
-        ChromeWindow.windows.remove(self)
+            window0.state = State.FriendList
+            window1.state = State.FriendList
+            ChromeWindow.cDriver.switch_to_window(self.window_handle)
+            ChromeWindow.cDriver.close()
+            ChromeWindow.windows.remove(self)
 
     def goToMyProfile(self):
         ChromeWindow.cDriver.switch_to_window(self.window_handle)
