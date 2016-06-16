@@ -290,3 +290,11 @@ class ChromeWindow:
         self.state = State.Home
         self.window_handle = ChromeWindow.cDriver.window_handles[-1]
         ChromeWindow.windows.append(self)
+
+if __name__ == "__main__":
+    mW = ChromeWindow()
+    ChromeWindow.loginToFacebook()
+    for i in range(64):
+        print i
+        ChromeWindow.run()
+        sleep(0.5)
