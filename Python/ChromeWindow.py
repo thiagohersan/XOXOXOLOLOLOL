@@ -59,14 +59,12 @@ class ChromeWindow:
             expectedPass = EC.presence_of_element_located((By.NAME, "pass"))
             passwordBox = WebDriverWait(ChromeWindow.cDriver, 2, 0.2).until(expectedPass)
 
-        # read login/password from file
         secrets = {}
         with open('oauth.txt', 'r') as inFile:
             for line in inFile:
                 (k,v) = line.split()
                 secrets[k] = v
 
-            # type login/password
             for c in secrets['EMAIL']:
                 emailBox.send_keys(c)
                 sleep(uniform(0.1, 0.3))
@@ -183,7 +181,6 @@ class ChromeWindow:
         if self.commentText != '':
             self.commentBoxText.send_keys(self.commentText[0])
             self.commentText = self.commentText[1:]
-            #sleep(uniform(0.1, 0.3))
         else:
             #commentBoxText.send_keys(Keys.ENTER)
             offsetX = ChromeWindow.cDriver.execute_script("return window.pageXOffset;")
@@ -279,7 +276,6 @@ class ChromeWindow:
         if(ChromeWindow.cDriver is None):
             ChromeWindow.__init__driver__()
 
-        # x,y,w,h in grid values
         (self.x, self.y, self.w, self.h) = (x,y,w,h)
         self.state = State.Home
         self.scrollCount = 0
