@@ -18,7 +18,7 @@ COMMENTS = ["#FORATEMER",
             "XOXOXOLOLOLOL"]
 
 class State:
-    (Home, MyProfile, Profile, FriendList) = range(4)
+    (Home, MyProfile, Profile, FriendList, Commenting) = range(5)
 
 class ChromeWindow:
     SCREEN_WIDTH = None
@@ -106,15 +106,18 @@ class ChromeWindow:
             if ((self.scrollCount > 10) and (uniform(0.0,1.0) > 0.5)):
                 print "   going back to myprofile"
                 self.goToMyProfile()
-            elif(uniform(0.0,1.0) > 0.9):
+            elif(uniform(0.0,1.0) > 0.8):
                 print "   comment"
-                self.postComment()
+                self.startComment()
             elif(uniform(0.0,1.0) > 0.8):
                 print "   like"
                 self.likePost()
             else:
                 print "   scroll"
                 self.scrollProfile()
+        elif(self.state == State.Commenting):
+            print "commenting"
+            self.doComment()
         elif(self.state == State.FriendList):
             print "state friendlist"
             if ((self.scrollCount > 6) and (uniform(0.0,1.0) > 0.5)):
@@ -161,7 +164,7 @@ class ChromeWindow:
             sleep(0.5)
             #superLike.click()
 
-    def postComment(self):
+    def startComment(self):
         try:
             commentForms = ChromeWindow.cDriver.find_elements_by_xpath("//div[@class='UFICommentContainer']")
             if(len(commentForms) > 1):
@@ -170,22 +173,27 @@ class ChromeWindow:
                 ChromeWindow.cDriver.execute_script("window.scrollTo(0, %s);"%(commentBox.location['y']-windowHeightCenter))
                 commentBox.click()
                 expectedTextBox = EC.presence_of_element_located((By.XPATH, "//div[@data-testid='ufi_comment_composer']"))
-                commentBoxText = WebDriverWait(ChromeWindow.cDriver, 1, 0.1).until(expectedTextBox)
-                sleep(0.1)
-                for c in choice(COMMENTS):
-                    commentBoxText.send_keys(c)
-                    sleep(uniform(0.1, 0.3))
-                sleep(0.5)
-                #commentBoxText.send_keys(Keys.ENTER)
-                offsetX = ChromeWindow.cDriver.execute_script("return window.pageXOffset;")
-                offsetY = ChromeWindow.cDriver.execute_script("return window.pageYOffset;")
-                windowHeight = ChromeWindow.cDriver.execute_script("return window.innerHeight;")
-                ChromeWindow.cDriver.execute_script("window.scrollTo(%s, %s);"%(offsetX, offsetY+windowHeight))
-                self.scrollCount += 1
-                for i in range(16):
-                    commentBoxText.send_keys(Keys.BACKSPACE)
+                self.commentBoxText = WebDriverWait(ChromeWindow.cDriver, 1, 0.1).until(expectedTextBox)
+                self.commentText = choice(COMMENTS)
+                self.state = State.Commenting
         except Exception as e:
             print "comment exception (???)"
+
+    def doComment(self):
+        if self.commentText != '':
+            self.commentBoxText.send_keys(self.commentText[0])
+            self.commentText = self.commentText[1:]
+            #sleep(uniform(0.1, 0.3))
+        else:
+            #commentBoxText.send_keys(Keys.ENTER)
+            offsetX = ChromeWindow.cDriver.execute_script("return window.pageXOffset;")
+            offsetY = ChromeWindow.cDriver.execute_script("return window.pageYOffset;")
+            windowHeight = ChromeWindow.cDriver.execute_script("return window.innerHeight;")
+            ChromeWindow.cDriver.execute_script("window.scrollTo(%s, %s);"%(offsetX, offsetY+windowHeight))
+            self.scrollCount += 1
+            for i in range(16):
+                self.commentBoxText.send_keys(Keys.BACKSPACE)
+            self.state = State.Profile
 
     def spawn(self, spawnElementXPath="//a[@data-tab-key='friends']"):
         # IMPORTANT:
