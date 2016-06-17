@@ -35,12 +35,12 @@ class ChromeWindow:
         mOptions.add_argument("user-data-dir=./chromeSettings/")
         ChromeWindow.cDriver = webdriver.Chrome(chrome_options=mOptions)
         ChromeWindow.SCREEN_WIDTH = ChromeWindow.cDriver.execute_script("return screen.width;")
-        ChromeWindow.SCREEN_HEIGHT = ChromeWindow.cDriver.execute_script("return screen.height;")-24
-        ChromeWindow.cDriver.set_window_size(ChromeWindow.SCREEN_WIDTH, ChromeWindow.SCREEN_HEIGHT)
+        ChromeWindow.SCREEN_HEIGHT = ChromeWindow.cDriver.execute_script("return screen.height;")
         ChromeWindow.cDriver.set_window_position(0,0)
 
     @staticmethod
     def loginToFacebook():
+        ChromeWindow.cDriver.set_window_size(ChromeWindow.SCREEN_WIDTH, ChromeWindow.SCREEN_HEIGHT)
         ChromeWindow.cDriver.get('http://www.facebook.com')
         try:
             emailBox = ChromeWindow.cDriver.find_element_by_name('email')
@@ -128,7 +128,7 @@ class ChromeWindow:
         self.scrollCount += 1
         bodyWidth = ChromeWindow.cDriver.execute_script("return document.body.scrollWidth;")
         bodyHeight = ChromeWindow.cDriver.execute_script("return document.body.scrollHeight;")
-        ChromeWindow.cDriver.execute_script("window.scrollTo(%s, %s);"%(bodyWidth/randint(2,5), bodyHeight))
+        ChromeWindow.cDriver.execute_script("window.scrollTo(%s, %s);"%(bodyWidth/randint(3,5), bodyHeight))
 
     def goToFriend(self):
         friendList = ChromeWindow.cDriver.find_elements_by_xpath("//div[@class='fsl fwb fcb']")
@@ -203,15 +203,17 @@ class ChromeWindow:
             ActionChains(ChromeWindow.cDriver).key_down(Keys.SHIFT).click(spawnElement).key_up(Keys.SHIFT).perform()
             window0 = ChromeWindow(self.x, self.y, w0, self.h)
             ChromeWindow.cDriver.switch_to_window(ChromeWindow.cDriver.window_handles[-1])
-            ChromeWindow.cDriver.set_window_size(w0*SCREEN_WIDTH/3, self.h*SCREEN_HEIGHT/3-10)
-            ChromeWindow.cDriver.set_window_position(self.x*SCREEN_WIDTH/3, self.y*SCREEN_HEIGHT/3-10)
+            ChromeWindow.cDriver.set_window_size(w0*SCREEN_WIDTH/3, self.h*SCREEN_HEIGHT/3)
+            ChromeWindow.cDriver.set_window_position(self.x*SCREEN_WIDTH/3, self.y*SCREEN_HEIGHT/3)
+            ChromeWindow.cDriver.set_window_size(w0*SCREEN_WIDTH/3, self.h*SCREEN_HEIGHT/3)
             ChromeWindow.cDriver.switch_to_window(self.window_handle)
 
             ActionChains(ChromeWindow.cDriver).key_down(Keys.SHIFT).click(spawnElement).key_up(Keys.SHIFT).perform()
             window1 = ChromeWindow(self.x+w0, self.y, w1, self.h)
             ChromeWindow.cDriver.switch_to_window(ChromeWindow.cDriver.window_handles[-1])
-            ChromeWindow.cDriver.set_window_size(w1*SCREEN_WIDTH/3, self.h*SCREEN_HEIGHT/3-10)
-            ChromeWindow.cDriver.set_window_position((self.x+w0)*SCREEN_WIDTH/3, self.y*SCREEN_HEIGHT/3-10)
+            ChromeWindow.cDriver.set_window_size(w1*SCREEN_WIDTH/3, self.h*SCREEN_HEIGHT/3)
+            ChromeWindow.cDriver.set_window_position((self.x+w0)*SCREEN_WIDTH/3, self.y*SCREEN_HEIGHT/3)
+            ChromeWindow.cDriver.set_window_size(w1*SCREEN_WIDTH/3, self.h*SCREEN_HEIGHT/3)
             ChromeWindow.cDriver.switch_to_window(self.window_handle)
 
             window0.state = State.FriendList
@@ -228,15 +230,17 @@ class ChromeWindow:
             ActionChains(ChromeWindow.cDriver).key_down(Keys.SHIFT).click(spawnElement).key_up(Keys.SHIFT).perform()
             window0 = ChromeWindow(self.x, self.y, self.w, h0)
             ChromeWindow.cDriver.switch_to_window(ChromeWindow.cDriver.window_handles[-1])
-            ChromeWindow.cDriver.set_window_size(self.w*SCREEN_WIDTH/3, h0*SCREEN_HEIGHT/3-10)
-            ChromeWindow.cDriver.set_window_position(self.x*SCREEN_WIDTH/3, self.y*SCREEN_HEIGHT/3-10)
+            ChromeWindow.cDriver.set_window_size(self.w*SCREEN_WIDTH/3, h0*SCREEN_HEIGHT/3)
+            ChromeWindow.cDriver.set_window_position(self.x*SCREEN_WIDTH/3, self.y*SCREEN_HEIGHT/3)
+            ChromeWindow.cDriver.set_window_size(self.w*SCREEN_WIDTH/3, h0*SCREEN_HEIGHT/3)
             ChromeWindow.cDriver.switch_to_window(self.window_handle)
 
             ActionChains(ChromeWindow.cDriver).key_down(Keys.SHIFT).click(spawnElement).key_up(Keys.SHIFT).perform()
             window1 = ChromeWindow(self.x, self.y+h0, self.w, h1)
             ChromeWindow.cDriver.switch_to_window(ChromeWindow.cDriver.window_handles[-1])
-            ChromeWindow.cDriver.set_window_size(self.w*SCREEN_WIDTH/3, h1*SCREEN_HEIGHT/3-10)
-            ChromeWindow.cDriver.set_window_position(self.x*SCREEN_WIDTH/3, (self.y+h0)*SCREEN_HEIGHT/3-10)
+            ChromeWindow.cDriver.set_window_size(self.w*SCREEN_WIDTH/3, h1*SCREEN_HEIGHT/3)
+            ChromeWindow.cDriver.set_window_position(self.x*SCREEN_WIDTH/3, (self.y+h0)*SCREEN_HEIGHT/3)
+            ChromeWindow.cDriver.set_window_size(self.w*SCREEN_WIDTH/3, h1*SCREEN_HEIGHT/3)
             ChromeWindow.cDriver.switch_to_window(self.window_handle)
 
             window0.state = State.FriendList
