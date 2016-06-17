@@ -84,7 +84,13 @@ class ChromeWindow:
 
     @staticmethod
     def quit():
+        for w in ChromeWindow.windows:
+            w.stop()
         ChromeWindow.cDriver.quit()
+
+    def stop(self):
+        ChromeWindow.cDriver.switch_to_window(self.window_handle)
+        ChromeWindow.cDriver.close()
 
     def step(self):
         ChromeWindow.cDriver.switch_to_window(self.window_handle)
@@ -285,7 +291,8 @@ class ChromeWindow:
 if __name__ == "__main__":
     mW = ChromeWindow()
     ChromeWindow.loginToFacebook()
-    for i in range(128):
+    for i in range(256):
         print i
         ChromeWindow.run()
         sleep(0.5)
+    ChromeWindow.quit()
