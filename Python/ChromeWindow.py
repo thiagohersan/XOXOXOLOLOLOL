@@ -95,16 +95,15 @@ class ChromeWindow:
             self.goToMyProfile()
         elif(self.state == State.MyProfile):
             print "state myprofile"
-            if(uniform(0.0,1.0) > 0.8):
+            if(uniform(0.0,1.0) > 0.5):
                 print "   going to spawn"
-                #self.spawn()
-                self.goToFriendList()
+                self.spawn()
             else:
                 print "   going to friend list"
                 self.goToFriendList()
         elif(self.state == State.Profile):
             print "state profile"
-            if(uniform(0.0,1.0) > 0.95):
+            if ((self.scrollCount > 10) and (uniform(0.0,1.0) > 0.5)):
                 print "   going back to myprofile"
                 self.goToMyProfile()
             elif(uniform(0.0,1.0) > 0.9):
@@ -118,18 +117,18 @@ class ChromeWindow:
                 self.scrollProfile()
         elif(self.state == State.FriendList):
             print "state friendlist"
-            if (uniform(0.0,1.0) > 0.1):
-                print "   load/scroll"
-                self.loadFriends()
-            else:
+            if ((self.scrollCount > 6) and (uniform(0.0,1.0) > 0.5)):
                 print "   going to friend"
                 self.goToFriend()
+            else:
+                print "   load/scroll"
+                self.loadFriends()
 
     def loadFriends(self):
-        if (uniform(0.0,1.0) > 0.3):
-            bodyWidth = ChromeWindow.cDriver.execute_script("return document.body.scrollWidth;")
-            bodyHeight = ChromeWindow.cDriver.execute_script("return document.body.scrollHeight;")
-            ChromeWindow.cDriver.execute_script("window.scrollTo(%s, %s);"%(randint(bodyWidth/5,bodyWidth/2), bodyHeight))
+        self.scrollCount += 1
+        bodyWidth = ChromeWindow.cDriver.execute_script("return document.body.scrollWidth;")
+        bodyHeight = ChromeWindow.cDriver.execute_script("return document.body.scrollHeight;")
+        ChromeWindow.cDriver.execute_script("window.scrollTo(%s, %s);"%(bodyWidth/randint(2,5), bodyHeight))
 
     def goToFriend(self):
         friendList = ChromeWindow.cDriver.find_elements_by_xpath("//div[@class='fsl fwb fcb']")
@@ -137,15 +136,19 @@ class ChromeWindow:
         ChromeWindow.cDriver.execute_script("window.scrollTo(%s, %s);"%(bffLink.location['x'], bffLink.location['y']-100))
         sleep(0.1)
         bffLink.click()
+        bodyWidth = ChromeWindow.cDriver.execute_script("return document.body.scrollWidth;")
+        bodyHeight = ChromeWindow.cDriver.execute_script("return document.body.scrollHeight;")
+        ChromeWindow.cDriver.execute_script("window.scrollTo(%s, %s);"%(bodyWidth/2, bodyHeight))
         # TODO: investigate and make sure it always goes to a friend
         self.state = State.Profile
+        self.scrollCount = 0
 
     def scrollProfile(self):
-        if (uniform(0.0,1.0) > 0.3):
-            bodyWidth = ChromeWindow.cDriver.execute_script("return document.body.scrollWidth;")
-            bodyHeight = ChromeWindow.cDriver.execute_script("return document.body.scrollHeight;")
-            ChromeWindow.cDriver.execute_script("window.scrollTo(%s, %s);"%(randint(bodyWidth/8, bodyWidth/2),
-                                                                            randint(0, bodyHeight)))
+        self.scrollCount += 1
+        bodyWidth = ChromeWindow.cDriver.execute_script("return document.body.scrollWidth;")
+        bodyHeight = ChromeWindow.cDriver.execute_script("return document.body.scrollHeight;")
+        ChromeWindow.cDriver.execute_script("window.scrollTo(%s, %s);"%(bodyWidth/randint(2,8),
+                                                                        randint(0, bodyHeight)))
 
     def likePost(self):
         likeLinks = ChromeWindow.cDriver.find_elements_by_xpath("//a[@data-testid='fb-ufi-likelink']")
@@ -154,9 +157,9 @@ class ChromeWindow:
             windowHeightCenter = ChromeWindow.cDriver.execute_script("return window.innerHeight;")/2
             ChromeWindow.cDriver.execute_script("window.scrollTo(0, %s);"%(superLike.location['y']-windowHeightCenter))
             ActionChains(ChromeWindow.cDriver).move_to_element(superLike).perform()
+            self.scrollCount += 1
             sleep(0.5)
             #superLike.click()
-            #sleep(0.5)
 
     def postComment(self):
         try:
@@ -178,6 +181,7 @@ class ChromeWindow:
                 offsetY = ChromeWindow.cDriver.execute_script("return window.pageYOffset;")
                 windowHeight = ChromeWindow.cDriver.execute_script("return window.innerHeight;")
                 ChromeWindow.cDriver.execute_script("window.scrollTo(%s, %s);"%(offsetX, offsetY+windowHeight))
+                self.scrollCount += 1
                 for i in range(16):
                     commentBoxText.send_keys(Keys.BACKSPACE)
         except Exception as e:
@@ -202,7 +206,6 @@ class ChromeWindow:
             ChromeWindow.cDriver.set_window_size(w0*SCREEN_WIDTH/3, self.h*SCREEN_HEIGHT/3-10)
             ChromeWindow.cDriver.set_window_position(self.x*SCREEN_WIDTH/3, self.y*SCREEN_HEIGHT/3-10)
             ChromeWindow.cDriver.switch_to_window(self.window_handle)
-            sleep(0.5)
 
             ActionChains(ChromeWindow.cDriver).key_down(Keys.SHIFT).click(spawnElement).key_up(Keys.SHIFT).perform()
             window1 = ChromeWindow(self.x+w0, self.y, w1, self.h)
@@ -210,7 +213,6 @@ class ChromeWindow:
             ChromeWindow.cDriver.set_window_size(w1*SCREEN_WIDTH/3, self.h*SCREEN_HEIGHT/3-10)
             ChromeWindow.cDriver.set_window_position((self.x+w0)*SCREEN_WIDTH/3, self.y*SCREEN_HEIGHT/3-10)
             ChromeWindow.cDriver.switch_to_window(self.window_handle)
-            sleep(0.5)
 
             window0.state = State.FriendList
             window1.state = State.FriendList
@@ -229,7 +231,6 @@ class ChromeWindow:
             ChromeWindow.cDriver.set_window_size(self.w*SCREEN_WIDTH/3, h0*SCREEN_HEIGHT/3-10)
             ChromeWindow.cDriver.set_window_position(self.x*SCREEN_WIDTH/3, self.y*SCREEN_HEIGHT/3-10)
             ChromeWindow.cDriver.switch_to_window(self.window_handle)
-            sleep(0.5)
 
             ActionChains(ChromeWindow.cDriver).key_down(Keys.SHIFT).click(spawnElement).key_up(Keys.SHIFT).perform()
             window1 = ChromeWindow(self.x, self.y+h0, self.w, h1)
@@ -237,7 +238,6 @@ class ChromeWindow:
             ChromeWindow.cDriver.set_window_size(self.w*SCREEN_WIDTH/3, h1*SCREEN_HEIGHT/3-10)
             ChromeWindow.cDriver.set_window_position(self.x*SCREEN_WIDTH/3, (self.y+h0)*SCREEN_HEIGHT/3-10)
             ChromeWindow.cDriver.switch_to_window(self.window_handle)
-            sleep(0.5)
 
             window0.state = State.FriendList
             window1.state = State.FriendList
@@ -261,6 +261,7 @@ class ChromeWindow:
         ChromeWindow.cDriver.execute_script("window.scrollTo(%s, %s);"%(friendElement.location['x'], friendElement.location['y']-50))
         ActionChains(ChromeWindow.cDriver).click(friendElement).perform()
         self.state = State.FriendList
+        self.scrollCount = 0
 
     def __init__(self, x=0,y=0, w=3,h=3):
         if(ChromeWindow.cDriver is None):
@@ -269,13 +270,14 @@ class ChromeWindow:
         # x,y,w,h in grid values
         (self.x, self.y, self.w, self.h) = (x,y,w,h)
         self.state = State.Home
+        self.scrollCount = 0
         self.window_handle = ChromeWindow.cDriver.window_handles[-1]
         ChromeWindow.windows.append(self)
 
 if __name__ == "__main__":
     mW = ChromeWindow()
     ChromeWindow.loginToFacebook()
-    for i in range(64):
+    for i in range(128):
         print i
         ChromeWindow.run()
         sleep(0.5)
