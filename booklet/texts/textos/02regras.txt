@@ -1,6 +1,6 @@
 Regras
 color: #444;
-"images/blank.jpg"
+"images/regras.jpg"
 
 <div class="regras">
 <h2>O Jogo</h2>
