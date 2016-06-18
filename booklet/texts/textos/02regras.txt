@@ -1,5 +1,5 @@
 Regras
-color: #000;
+color: #444;
 "images/blank.jpg"
 
 <div class="regras">
