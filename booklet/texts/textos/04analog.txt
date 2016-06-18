@@ -1,0 +1,4 @@
+Analógico
+color: #444;
+"images/blank.jpg"
+
