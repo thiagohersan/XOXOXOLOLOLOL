@@ -39,7 +39,7 @@ if __name__ == "__main__":
                     if cTitle is "":
                         titleAuthor = line.split(":")
                         cTitle = titleAuthor[0].strip()
-                        cAuthor = titleAuthor[-1].strip()
+                        cAuthor = titleAuthor[-1].strip() if len(titleAuthor) > 1 else ""
                         TOC += "				<li><a href=\"#ch%s\">%s</a></li>\n"%(str(idx), cTitle)
                     elif "images/" in line:
                         if cHtml is "":
