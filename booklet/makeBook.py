@@ -12,6 +12,7 @@ if __name__ == "__main__":
     BOOK_NAME = "xoxoxolololol"
     TOC_TAG = "<!-- !!! TOCTOCTOC !!! -->"
     BODY_TAG = "<!-- !!! BODYBODY !!! -->"
+    COLORS = ["#ccc", "#000", "#000", "#000"]
 
     BODY = ""
     TOC = ""
@@ -21,9 +22,7 @@ if __name__ == "__main__":
         thisDir = join(DATA_DIR, txtDir)
         thisHeading = sub(r"[0-9]+", "", txtDir).title()
 
-        #TOC += "            <h3>%s</h3>\n"%thisHeading
         TOC += "            <ul class=\"toc\">\n"
-
 
         for filename in [f for f in sorted(listdir(thisDir)) if f.endswith(".txt")]:
             fullPath = join(thisDir, filename)
@@ -45,7 +44,7 @@ if __name__ == "__main__":
                         if cHtml is "":
                             cHtml += "        <div id=\"ch%s\" class=\"projcover\">\n"%str(idx)
                             cHtml += "            <img src=%s />\n"%line
-                            cHtml += "            <h2>%s<br /><span id=\"author\">%s</span></h2>\n"%(cTitle, cAuthor)
+                            cHtml += "            <h2><span style=\"color:%s;\">%s<br /><span id=\"author\">%s</span></span></h2>\n"%(COLORS[idx%len(COLORS)], cTitle, cAuthor)
                             cHtml += "        </div>\n"
                             cHtml += "        <div class=\"chapter\">\n" 
                             cHtml += "        <h1 class=\"chapter-title\">%s</h1>\n"%cTitle
