@@ -218,6 +218,17 @@ h1.chapter-title::before {
     counter-increment: chapternum;
 }
 
+div.chapter div.regras h2{
+    margin: 0;
+    font-size: 14px;
+    text-align: right;
+}
+
+div.chapter div.regras p{
+    margin: 0;
+    text-align: justify;
+}
+
 h1,h2,h3,h4,h5 {
     font-weight: bold;
     page-break-after: avoid;

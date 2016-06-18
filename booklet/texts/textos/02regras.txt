@@ -1,0 +1,18 @@
+Regras
+"images/blank.jpg"
+
+<div class="regras">
+<h2>O Jogo</h2>
+<p>“As our voluntary self-exposure through social-media and visible consumption becomes a kind of performance for the perpetual gaze of virtual others, we need to think about how this gaze inflicts how we find, measure and know one another, and also how it affects everything from our ability to access human warmth to our ability to access means of subsistence.”</p>
+
+<h2>Objetivo</h2>
+<p>“Aquele dia eu achei que você tivesse desmaterializado… Como se o avanço da consciência levasse à desmaterialização. No fundo dessa ideia está minha descrença com a humanidade, em contradição com o meu reconhecimento como parte de nossas descobertas.”</p>
+
+<h2>Como Jogar</h2>
+<p>“Não quero fazer amor só porque sexo é saudável e faz bem para mim.”</p>
+
+<h2>Componentes</h2>
+<p>"O maquínico entra em cena não como uma alteridade boa ou ruim, mas como um desconhecimento íntimo. Aparelhagem, como sensações, é algo transitório e indeterminado, intermediário, in-between. É uma coisa não-humana, nem objeto nem sujeito."</p>
+
+<h2>Como Vencer</h2>
+<p>"Objectivity is about accountability to the marks on the body; responsibility to the entanglements of which we are a part."</p>
