@@ -1,4 +1,5 @@
 XOXOXOLOLOLOL
+color: #000;
 "images/beijoPost01.jpg"
 
 XOXOXOLOLOLOL é um projeto de projetos. Um espaço instalativo que explora as traduções e movimentos do afeto entre ambientes analógicos e digitais.<br />

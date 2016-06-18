@@ -1,4 +1,5 @@
 O Afeto na Era de Sua Reprodutibilidade Digital
+color: #ccc;
 "images/afetoDigital.jpg"
 
 <span class="note"></span>
