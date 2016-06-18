@@ -8,7 +8,7 @@ from re import sub
 
 if __name__ == "__main__":
     DATA_DIR = "./texts"
-    HTML_TEMPLATE = "template.html"
+    HTML_TEMPLATE = "html.html"
     BOOK_NAME = "xoxoxolololol"
     TOC_TAG = "<!-- !!! TOCTOCTOC !!! -->"
     BODY_TAG = "<!-- !!! BODYBODY !!! -->"
