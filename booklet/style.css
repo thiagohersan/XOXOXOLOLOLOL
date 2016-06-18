@@ -68,7 +68,7 @@ div.projcover {
 
 @page:right{
     margin: 20mm 15mm 20mm 30mm;
-    @right-middle{
+    @left-middle{
         margin: 0 10pt 0 10pt;
         content: flow(notes);
     }
@@ -102,7 +102,7 @@ div.projcover {
 Bottom right book title, bottom left current page */
 @page:left {
     margin: 20mm 30mm 20mm 15mm;
-    @left-middle{
+    @right-middle{
         margin: 0 10pt 0 10pt;
         content: flow(notes);
     }
