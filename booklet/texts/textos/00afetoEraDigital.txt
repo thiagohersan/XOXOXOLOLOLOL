@@ -1,5 +1,5 @@
-O Afeto na Era de Sua Reprodutibilidade Digital: Thiago Hersan
-"images/afeto_digital.jpg"
+O Afeto na Era de Sua Reprodutibilidade Digital
+"images/afetoDigital.jpg"
 
 <span class="note"></span>
 <span class="ne"></span>
