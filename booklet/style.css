@@ -226,6 +226,12 @@ div.chapter div.regras h2{
     text-align: right;
 }
 
+div.chapter div.apps h2{
+    margin: 0;
+    font-size: 14px;
+    text-align: right;
+}
+
 div.chapter div.regras p{
     margin: 0;
     text-align: justify;
