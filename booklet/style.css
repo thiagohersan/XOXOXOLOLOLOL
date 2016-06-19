@@ -226,15 +226,19 @@ div.chapter div.regras h2{
     text-align: right;
 }
 
+div.chapter div.regras p{
+    margin: 0;
+    text-align: justify;
+}
+
 div.chapter div.apps h2{
     margin: 0;
     font-size: 14px;
     text-align: right;
 }
 
-div.chapter div.regras p{
-    margin: 0;
-    text-align: justify;
+div.chapter div.apps ol{
+    margin:2mm 0 2mm 20mm;
 }
 
 h1,h2,h3,h4,h5 {
