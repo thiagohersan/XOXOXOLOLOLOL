@@ -220,25 +220,28 @@ h1.chapter-title::before {
     counter-increment: chapternum;
 }
 
-div.chapter div.regras h2{
+div.chapter div.regras h2 {
     margin: 0;
     font-size: 14px;
     text-align: right;
 }
 
-div.chapter div.regras p{
+div.chapter div.regras p {
     margin: 0;
     text-align: justify;
 }
 
-div.chapter div.apps h2{
+div.chapter div.apps h2 {
     margin: 0;
     font-size: 14px;
     text-align: right;
 }
 
-div.chapter div.apps ol{
-    margin:2mm 0 2mm 20mm;
+div.chapter div.apps ol {
+    margin:2mm 0mm 2mm 20mm;
+    page-break-inside: avoid;
+    font-family: "Monaco";
+    font-size: 10px;
 }
 
 h1,h2,h3,h4,h5 {
