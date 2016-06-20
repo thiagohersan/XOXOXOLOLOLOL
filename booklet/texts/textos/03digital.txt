@@ -2,47 +2,55 @@ Digital
 color: #444;
 "images/iLikeYou.jpg"
 
-Dados já não são mais apenas uma consequência de nossas atividades diárias, estão se tornando uma verdadeira moeda de troca simbólica, econômica e social. Deus ajuda quem mais compartilha, curte, posta, cutuca, tagueia, twitta...<br />
-<br />
-Conforme nossos dispositivos de comunicação e suas interfaces vão ficando cada vez mais rápidos, menores, integrados e simples de usar, como podemos garantir que nossas personalidades e intenções não serão optimizadas e eliminadas de nossas próprias interações?<br />
-<br />
+Dados já não são mais apenas uma consequência de nossas atividades diárias, estão se tornando uma verdadeira moeda de troca simbólica, econômica e social. Deus ajuda quem mais compartilha, curte, posta, cutuca, tagueia, twitta...<br /><br />
+
+Conforme nossos dispositivos de comunicação e suas interfaces vão ficando cada vez mais rápidos, menores, integrados e simples de usar, como podemos garantir que nossas personalidades e intenções não serão optimizadas e eliminadas de nossas próprias interações?<br /><br />
+
 Podemos nos apropriar da lógica dessas interfaces para resignificar essas formas de interagir que estão cada vez mais banais e genéricas?<br />
 
 "images/iLikeMe.jpg"
 
 <div class="apps">
 <h2>iLikeMe (on facebook)</h2>
-Em 1968, Andy Warhol, supostamente, disse que "No futuro, todos terão seus quinze minutos de fama". O futuro é agora, e todos podemos ser famosos por quinze minutos na internet.<br/>
-<br/>
-iLikeMe (on facebook) é um aplicativo de auto-promoção e uma plataforma de intervenção para aumentar nosso status social na internet a partir do facebook. Usando um algoritmo de rastreamento de rosto em tempo real para gerar imagens coloridas no estilo das serigrafias de Andy Warhol, o aplicativo publica essas fotos no facebook durante quinze minutos sem parar.<br/>
-<br/>
+Em 1968, Andy Warhol, supostamente, disse que "No futuro, todos terão seus quinze minutos de fama". O futuro é agora, e todos podemos ser famosos por quinze minutos na internet.<br/><br/>
+
+iLikeMe (on facebook) é um aplicativo de auto-promoção e uma plataforma de intervenção para aumentar nosso status social na internet a partir do facebook. Usando um algoritmo de rastreamento de rosto em tempo real para gerar imagens coloridas no estilo das serigrafias de Andy Warhol, o aplicativo publica essas fotos no facebook durante quinze minutos sem parar.<br/><br/>
 
 <h2>iLikeYou (on facebook)</h2>
-é um aplicativo para facebook que nos ajuda a quantificar o que sentimos pelos nossos amigos e amigas. O aplicativo lê toda a informação do perfil de um amigo ou amiga escolhido, e tenta dar <i>Like</i> em todoso os posts, fotos e comentários publicados ou tagueados pela pessoa escolhida.<br/>
-<br/>
-Igual ao amor analógico, a quantidade de informação que você pode tocar usando esse aplicativo depende das configurações de privacidade da outra pessoa e quanto ela confia em você.<br/>
-<br/>
+é um aplicativo para facebook que nos ajuda a quantificar o que sentimos pelos nossos amigos e amigas. O aplicativo lê toda a informação do perfil de um amigo ou amiga escolhido, e tenta dar <i>Like</i> em todoso os posts, fotos e comentários publicados ou tagueados pela pessoa escolhida.<br/><br/>
+
+Igual ao amor analógico, a quantidade de informação que você pode tocar usando esse aplicativo depende das configurações de privacidade da outra pessoa e quanto ela confia em você.<br/><br/>
 
 <h2>uLikeMe (on facebook)</h2>
-Em um mundo pós-privacidade, onde informação é compartilhada, coletada e organizada em quantidades e velocidades cada vez mais elevadas e surpreendentes, como podemos garantir que nossas personalidades digitais estão realmente sendo apreciadas por pessoas dentro de nossas redes sociais, e não apenas sendo utilizadas para fins publicitários e de vigilância? Apesar de estarmos sempre conectados, sabemos quando estamos falando sozinho?<br/>
-<br/>
-uLikeMe (on facebook) é um aplicativo criado para tornar nossas interações <i>online</i> mais pessoais, ironicamente inspirado pelos sistemas de vigilância usados pela NSA.<br/>
-<br/>
-Esse aplicativo cria a possibilidade de uma presença virtual <i>on-demand</i>, postando fotos da tela do meu computador e da minha webcam direto ao meu perfil de facebook, só quando alguém realmente quer saber o que estou fazendo.<br/>
+Em um mundo pós-privacidade, onde informação é compartilhada, coletada e organizada em quantidades e velocidades cada vez mais elevadas e surpreendentes, como podemos garantir que nossas personalidades digitais estão realmente sendo apreciadas por pessoas dentro de nossas redes sociais, e não apenas sendo utilizadas para fins publicitários e de vigilância? Apesar de estarmos sempre conectados, sabemos quando estamos falando sozinho?<br/><br/>
 
-"images/uLikeMe.jpg"
+uLikeMe (on facebook) é um aplicativo criado para tornar nossas interações <i>online</i> mais pessoais, ironicamente inspirado pelos sistemas de vigilância usados pela NSA.<br/><br/>
+
+Esse aplicativo cria a possibilidade de uma presença virtual <i>on-demand</i>, postando fotos da tela do meu computador e da minha webcam direto ao meu perfil de facebook, só quando alguém realmente quer saber o que estou fazendo.<br/><br/>
 
 <h2>XOXOXOLOLOLOL</h2>
-Em entrevista à José Louzeiro em 1965, explicando seu interesse pelos meios de produção, reprodução e consumo de informação em massa da época, e delineando a diferença entre línguas e linguagens de comunicação, Décio Pignatari esboça seu "Brevíssimo Tratado de Antiestética Semântico-quantitativa":<br/>
-<ol style="margin:2mm 0 2mm 20mm;">
+Em entrevista ao Correio da Manhã em 1965, explicando seu interesse pelos meios de produção, reprodução e consumo de informação em massa da época, e delineando a diferença entre línguas e linguagens de comunicação, Décio Pignatari esboça seu "Brevíssimo Tratado de Antiestética Semântico-quantitativa":<br/>
+
+<ol>
   <li>Quantidade é qualidade</li>
   <li>O belo é o significado</li>
   <li>O significado é o uso</li>
   <li>O uso é a comunicação</li>
 </ol>
-O que na época parecia 
 
-<br/><br/><br/>
-Outros<br/>
-<a href="https://vimeo.com/93852159">Tully Arnot - Lonely Sculpture (2014)</a><br />
+"images/uLikeMe.jpg"
+
+É interessante ver como as características dos meios de comunicação em massa, que em 1965 foram vistos como linguagens de possibilidades para experimentação e meta-narrativas dentro do conceito McLuhaniano de que "o meio é a mensagem", hoje já aceleradas à seus limites quase absurdos nos dão uma outra leitura da Antiestética Semântico-quantitativa:
+
+<ol>
+  <li>Quantidade é lucro</li>
+  <li>O belo é o produto</li>
+  <li>O produto é o uso</li>
+  <li>O uso é o controle</li>
+</ol>
+
+XOXOXOLOLOLOL é um aplicativo que comemora esse fim das possibilidades criativas e da meta-linguagem dentro dos meios de comunicação atuais. É um <i>bot</i> criado para interagir automaticamente com a interface do facebook, produzindo quantidades, qualidades, significados, uso, comunicação, etc, etc, etc...
+
+"images/xoxoxo.jpg"
+
 </div>
