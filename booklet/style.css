@@ -244,6 +244,62 @@ div.chapter div.apps ol {
     font-size: 10px;
 }
 
+div.chapter div.rede h2 {
+    margin: 0;
+    font-size: 14px;
+    text-align: left;
+}
+
+div.chapter div.rede ol {
+    list-style-type: none;
+    text-align: left;
+    margin: 2mm 0mm 2mm 0mm;
+    page-break-inside: avoid;
+    font-family: "Monaco";
+    font-size: 10px;
+}
+
+div.chapter div.rede div.table {
+    page-break-inside: avoid;
+    margin: 0;
+    font-size: 14px;
+    text-align: left;
+    width: 100%;
+}
+
+div.chapter div.rede div.table div.title {
+    margin: 0;
+    font-size: 16.25px;
+    text-align: justify;
+}
+
+div.chapter div.rede div.table div.item {
+    margin: 0;
+    padding-top: 3mm;
+    font-size: 11px;
+    text-align: left;
+    clear: both;
+}
+
+div.chapter div.rede div.table div.item-colabs {
+    margin: 0;
+    font-size: 11px;
+    text-align: left;
+    clear: both;
+}
+
+div.chapter div.rede div.table div.function {
+    padding: 0;
+    float: left;
+    clear: left;
+}
+
+div.chapter div.rede div.table div.name {
+    padding: 0;
+    float: right;
+    clear: right;
+}
+
 h1,h2,h3,h4,h5 {
     font-weight: bold;
     page-break-after: avoid;

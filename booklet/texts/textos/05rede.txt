@@ -1,0 +1,100 @@
+Rede
+color: #fff;
+"images/xoxoNet.jpg"
+
+<div class="rede">
+Esse projeto foi realizado para o II Festival de Arte e Tecnologia de Atibaia, organizado pela Incubadora de Artistas, entre Julho e Outubro de 2016.<br/><br/>
+
+O projeto não seria possível sem a participação de pessoas muito especiais que ajudaram a expandir a rede criando carimbos, e propondo ações e intervenções:<br/><br/>
+<div class="table">
+    <div class="item-colabs">
+        <div class="function">Amanda Andreucci</div>
+        <div class="name">Amanda de Souza</div>
+    </div>
+    <div class="item-colabs">
+        <div class="function">Ana Paula Pizini</div>
+        <div class="name">Anne Katherin Reis</div>
+    </div>
+    <div class="item-colabs">
+        <div class="function">Belén Moro</div>
+        <div class="name">Cybelle Oliveira</div>
+    </div>
+    <div class="item-colabs">
+        <div class="function">Gersey Pinheiro</div>
+        <div class="name">Graziele Lautenschlaeger</div>
+    </div>
+    <div class="item-colabs">
+        <div class="function">Jason Menezes</div>
+        <div class="name">Josy Panão</div>
+    </div>
+    <div class="item-colabs">
+        <div class="function">Jason Menezes</div>
+        <div class="name">Josy Panão</div>
+    </div>
+    <div class="item-colabs">
+        <div class="function">Júlia Ferraz</div>
+        <div class="name">Lizzy De Vita</div>
+    </div>
+    <div class="item-colabs">
+        <div class="function">Natalia Cersosimo</div>
+        <div class="name">Paula Spacek</div>
+    </div>
+    <div class="item-colabs">
+        <div class="function">Ricardo de Paula</div>
+        <div class="name">Rita Moura</div>
+    </div>
+    <div class="item-colabs">
+        <div class="function">Vitor Carvalho</div>
+        <div class="name"></div>
+    </div>
+</div>
+
+<div class="table">
+    <div class="title">II Festival de Arte e Tecnologia</div>
+
+    <div class="item-colabs">
+        <div class="function">Realização:</div>
+        <div class="name">Incubadora de Artistas</div>
+    </div>
+
+    <div class="item">
+        <div class="function">Idealização:</div>
+        <div class="name">Igor Spacek</div>
+        <div class="name">Vitor Carvalho</div>
+    </div>
+
+    <div class="item">
+        <div class="function">Curadoria:</div>
+        <div class="name">Josy Panão</div>
+        <div class="name">Paloma Oliveira</div>
+    </div>
+
+    <div class="item">
+        <div class="function">Artistas:</div>
+        <div class="name">Juliana França</div>
+        <div class="name">Mateus Knelsen</div>
+        <div class="name">OHMS</div>
+        <div class="name">Thiago Hersan</div>
+    </div>
+
+    <div class="item">
+        <div class="function">Produção:</div>
+        <div class="name">Cybelle Oliveira</div>
+        <div class="name">Igor Spacek</div>
+        <div class="name">Vitor Carvalho</div>
+    </div>
+
+    <div class="item">
+        <div class="function">Comunicação:</div>
+        <div class="name">Paula Spacek</div>
+        <div class="name">__???__</div>
+    </div>
+
+    <div class="item">
+        <div class="function">Documentação:</div>
+        <div class="name">Ricardo de Paula</div>
+    </div>
+
+</div>
+
+</div>
