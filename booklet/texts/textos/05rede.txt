@@ -87,7 +87,11 @@ O projeto não seria possível sem a participação de pessoas muito especiais q
     <div class="item">
         <div class="function">Comunicação:</div>
         <div class="name">Paula Spacek</div>
-        <div class="name">__???__</div>
+    </div>
+
+    <div class="item">
+        <div class="function">Identidade Visual:</div>
+        <div class="name">Ivan Spacek</div>
     </div>
 
     <div class="item">
