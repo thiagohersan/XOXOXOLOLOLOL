@@ -28,11 +28,7 @@ O projeto não seria possível sem a participação de pessoas muito especiais q
         <div class="name">Josy Panão</div>
     </div>
     <div class="item-colabs">
-        <div class="function">Jason Menezes</div>
-        <div class="name">Josy Panão</div>
-    </div>
-    <div class="item-colabs">
-        <div class="function">Júlia Ferraz</div>
+        <div class="function">Júlia Holzhauser</div>
         <div class="name">Lizzy De Vita</div>
     </div>
     <div class="item-colabs">
