@@ -32,16 +32,20 @@ O projeto não seria possível sem a participação de pessoas muito especiais q
         <div class="name">Lizzy De Vita</div>
     </div>
     <div class="item-colabs">
-        <div class="function">Natalia Cersosimo</div>
-        <div class="name">Paula Spacek</div>
+        <div class="function">Marina Cadaval</div>
+        <div class="name">Natalia Cersosimo</div>
     </div>
     <div class="item-colabs">
-        <div class="function">Ricardo de Paula</div>
-        <div class="name">Rita Moura</div>
+        <div class="function">Paula Spacek</div>
+        <div class="name">Ricardo de Paula</div>
     </div>
     <div class="item-colabs">
-        <div class="function">Vitor Carvalho</div>
-        <div class="name"></div>
+        <div class="function">Rita Moura</div>
+        <div class="name">Salima Ahmadou</div>
+    </div>
+    <div class="item-colabs">
+        <div class="function">Shikha Sethia</div>
+        <div class="name">Vitor Carvalho</div>
     </div>
 </div>
 
