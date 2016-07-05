@@ -97,6 +97,7 @@ O projeto não seria possível sem a participação de pessoas muito especiais q
     <div class="item">
         <div class="function">Documentação:</div>
         <div class="name">Ricardo de Paula</div>
+        <div class="name">Vinícius Souza</div>
     </div>
 
 </div>
