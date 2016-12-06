@@ -16,10 +16,10 @@ Quais são os limites da comunicação mediada por dispositivos que estão cada 
 Mais recentemente, a socióloga americana Sherry Turkle tem estudado os efeitos psicológicos dessas ferramentas de comunicação no imaginário coletivo, e em seu livro <i>Alone Together</i> aponta alguns dos desejos criados por essas novas tecnologias. Turkle cita como exemplo que o uso desses dispositivos tem contribuído à uma ilusão de nunca estarmos sozinhos (porque sempre temos alguém, ou pelo menos um mural, para nos ouvir) e que podemos controlar nossas emoções através de conteúdo midiático.<br />
 
 <br />
-Podemos considerar neutra uma rede onde a maioria dos aplicativos, interfaces e recursos materiais que utilizamos para participar são mantidos por iniciativas privadas, com expectativas de lucros cada vez mais altos?<br />
+No ensaio <i>Neuro-Totalitarianism</i>, o teórico e ativista italiano Franco Berardi faz a conexão entre os efeitos psicológicos e neurológicos dos meios de comunicação e a lógica de produção e consumo do sistema capitalista responsável pelo desenvolvimento dessas tecnologias. Propõe que essa “captura digital de atenção”, ubíqua e incessante, tende a beneficiar empresas e desarticular o coletivismo político e cultural.<br />
 
 <br />
-No ensaio <i>Neuro-Totalitarianism</i>, o teórico e ativista italiano Franco Berardi faz a conexão entre os efeitos psicológicos e neurológicos dos meios de comunicação e a lógica de produção e consumo do sistema capitalista responsável pelo desenvolvimento dessas tecnologias. Propõe que essa “captura digital de atenção”, ubíqua e incessante, tende a beneficiar empresas e desarticular o coletivismo político e cultural.<br />
+Podemos considerar neutra uma rede onde a maioria dos aplicativos, interfaces e recursos materiais que utilizamos para participar são mantidos por iniciativas privadas, com expectativas de lucros cada vez mais altos?<br />
 
 <br />
 É óbvio que o relacionamento entre tecnologia, indivíduo e sociedade é complexo, e propulsiona desdobramentos materiais, culturais e psicológicos. Também é óbvio que não faz muito sentido imaginar um futuro desconexo, <i>offline</i>. Ou seja, não podemos resolver os problemas de hoje com os conceitos de ontem.<br />
