@@ -1,4 +1,6 @@
 Analógico
-color: #444;
-"images/blank.jpg"
+color: #eee;
+"images/FATA.jpg"
+
+It ended up becoming a space that explored the way we transfer, translate and transform "things" (objects, ideas, feelings) over networks, and in the process blur the distinctions and relationships between actor/network, node/link, object/subject.
 

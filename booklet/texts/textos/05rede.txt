@@ -24,7 +24,11 @@ O projeto não seria possível sem a participação de pessoas muito especiais q
         <div class="name">Graziele Lautenschlaeger</div>
     </div>
     <div class="item-colabs">
-        <div class="function">Jason Menezes</div>
+        <div class="function">Gustavo Saulle</div>
+        <div class="name">Jason Menezes</div>
+    </div>
+    <div class="item-colabs">
+        <div class="function">José Sampaio</div>
         <div class="name">Josy Panão</div>
     </div>
     <div class="item-colabs">
