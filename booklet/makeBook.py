@@ -8,7 +8,7 @@ from re import sub
 
 if __name__ == "__main__":
     DATA_DIR = "./texts"
-    HTML_TEMPLATE = "html.html"
+    HTML_TEMPLATE = "template.html"
     BOOK_NAME = "xoxoxolololol"
     TOC_TAG = "<!-- !!! TOCTOCTOC !!! -->"
     BODY_TAG = "<!-- !!! BODYBODY !!! -->"
@@ -77,10 +77,3 @@ if __name__ == "__main__":
             out.write(line)
         out.close()
         temp.close()
-
-    # make pdf
-    system("prince -s style.css %s.html -o %s.pdf"%(BOOK_NAME,BOOK_NAME))
-    #system("pdf2ps %s.pdf %s.ps"%(BOOK_NAME,BOOK_NAME))
-    #system("rm -rf %s.pdf"%(BOOK_NAME))
-    #system("ps2pdf %s.ps %s.pdf"%(BOOK_NAME,BOOK_NAME))
-    #system("rm -rf %s.ps"%(BOOK_NAME))

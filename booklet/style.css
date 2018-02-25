@@ -1,4 +1,26 @@
 /* this stylesheet is used when generating a PDF with PrinceXML or any other tool that understands the CSS used. */
+
+@font-face {
+  font-family: 'trebuxol';
+  src: url('fonts/trebuxol.ttf') format("truetype");
+}
+@font-face {
+  font-family: 'trebuxol';
+  src: url('fonts/trebuxol-B.ttf') format("truetype");
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'trebuxol';
+  src: url('fonts/trebuxol-I.ttf') format("truetype");
+  font-style: italic;
+}
+@font-face {
+  font-family: 'trebuxol';
+  src: url('fonts/trebuxol-BI.ttf') format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
+
 /* define a page */
 @page {
     size: 105mm 148mm;
@@ -76,7 +98,7 @@ div.projcover {
         margin: 10pt 0 20pt;
         border-top: .25pt solid #666;
         content: "XOXOXOLOLOLOL";
-        font-family: "Trebuchet MS", "Lucida Grande", sans-serif;
+        font-family: "trebuxol";
         font-size: 9px;
         color: #333;
     }
@@ -84,7 +106,7 @@ div.projcover {
         margin: 10pt 0 20pt;
         border-top: .25pt solid #666;
         content: counter(page);
-        font-family: "Trebuchet MS", "Lucida Grande", sans-serif;
+        font-family: "trebuxol";
         font-size: 9px;
         color: #333;
     }
@@ -92,7 +114,7 @@ div.projcover {
         margin: 20pt 0 15pt;
         border-bottom: .25pt solid #666;
         content: string(doctitle);
-        font-family: "Trebuchet MS", "Lucida Grande", sans-serif;
+        font-family: "trebuxol";
         font-size: 9px;
         color: #333;
     }
@@ -110,7 +132,7 @@ Bottom right book title, bottom left current page */
         margin: 10pt 0 20pt;
         border-top: .25pt solid #666;
         content: "XOXOXOLOLOLOL";
-        font-family: "Trebuchet MS", "Lucida Grande", sans-serif;
+        font-family: "trebuxol";
         font-size: 9px;
         color: #333;
     }
@@ -118,14 +140,14 @@ Bottom right book title, bottom left current page */
         margin: 10pt 0 20pt;
         border-top: .25pt solid #666;
         content: counter(page);
-        font-family: "Trebuchet MS", "Lucida Grande", sans-serif;
+        font-family: "trebuxol";
         font-size: 9px;
     }
     @top-right {
         margin: 20pt 0 15pt;
         border-bottom: .25pt solid #666;
         content: string(doctitle);
-        font-family: "Trebuchet MS", "Lucida Grande", sans-serif;
+        font-family: "trebuxol";
         font-size: 9px;
         color: #333;
     }
@@ -191,7 +213,7 @@ div.chapter {
 /* reset chapter and figure counters on the body */
 body {
     counter-reset: chapternum;
-    font-family: "Trebuchet MS", "Lucida Grande", sans-serif;
+    font-family: "trebuxol";
     line-height: 1.5;
     font-size: 10px;
 }
