@@ -1,5 +1,5 @@
 Digital
-color: #444;
+color: #000;
 "images/iLikeYou.jpg"
 
 Dados já não são mais apenas uma consequência de nossas atividades diárias, estão se tornando uma verdadeira moeda de troca simbólica, econômica e social. Deus ajuda quem mais compartilha, curte, posta, cutuca, tagueia, twitta...<br /><br />

@@ -1,5 +1,5 @@
 Analógico
-color: #ccc;
+color: #fff;
 "images/FATA00.jpg"
 
 Alguns meses depois, o projeto foi reformulado como um workshop de dois dias para discutir os efeitos da internet no corpo. Após uma breve apresentação sobre como a Internet funciona e o que está por trás de alguns dos sites mais visitados, conversamos sobre como essa tecnologia influencia nosso comportamento on-line e off-line.<br/><br/>

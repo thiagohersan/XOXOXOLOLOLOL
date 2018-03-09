@@ -1,5 +1,5 @@
 XOXOXOLOLOLOL
-color: #444;
+color: #000;
 "images/beijoPost01.jpg"
 
 XOXOXOLOLOLOL é um projeto de projetos; uma pesquisa sobre as possibilidades de conexão, comunicação e afeto pós-internet.<br /><br />

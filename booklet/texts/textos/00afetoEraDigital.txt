@@ -1,5 +1,5 @@
 O Afeto na Era de Sua Reprodutibilidade Digital
-color: #ccc;
+color: #fff;
 "images/afetoDigital.jpg"
 
 <span class="note"></span>
@@ -9,7 +9,6 @@ Por bem ou por mal a internet e seus dispositivos tem mudado a forma que fazemos
 <br />
 O teórico canadense Marshall McLuhan já pensava em algo parecido sobre o rádio e a televisão nos anos 60, quando propôs que “as tecnologias e métodos que usamos para distribuir conteúdo tem um maior impacto na sociedade do que o próprio conteúdo”. E apesar de não ter dito a frase, McLuhan avançou a ideia de que "nós moldamos as nossas ferramentas e depois, as nossas ferramentas nos moldam” (John Culkin).<br />
 
-<br />
 Quais são os limites da comunicação mediada por dispositivos que estão cada vez mais rápidos e integrados (nas nossas vidas e nossos corpos), e que promovem um tipo de transmissão unilateral incessante, preocupada com “<i>likes</i>”, “<i>trending topics</i>”, etc?<br />
 
 <br />
