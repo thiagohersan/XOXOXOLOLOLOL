@@ -1,11 +1,10 @@
 XOXOXOLOLOLOL
-color: #000;
 "images/beijoPost01.jpg"
 
 XOXOXOLOLOLOL é um projeto de projetos; uma pesquisa sobre as possibilidades de conexão, comunicação e afeto pós-internet.<br /><br />
 
 Pensando nas inquietações e ansiedades geradas pela massificação e comercialização dos nossos afetos, o projeto propõe a criação de redes sociais analógicas a partir de objetos físicos pessoais que possam ser recriados e distribuídos.<br /><br />
 
-Começou em 2015 como um tipo de jogo e arte postal: participantes receberam pelo correio um carimbo em formato de boca, uma almofada de tinta, e as "instruções" de como jogar. Esses carimbos viajaram o mundo e foram usados de formas diversas, criando uma rede social analógica, globalizada e distibuida.
+Começou em 2015 como um tipo de jogo e arte postal: participantes receberam pelo correio um carimbo em formato de boca, uma almofada de tinta, e as "instruções" de como jogar. Esses carimbos viajaram o mundo e foram usados de formas diversas, criando uma rede social analógica, globalizada e distibuída.
 
 "images/beijoPost00.jpg"

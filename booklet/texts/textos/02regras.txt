@@ -1,5 +1,4 @@
 Regras
-color: #000;
 "images/regras.jpg"
 
 <div class="regras">

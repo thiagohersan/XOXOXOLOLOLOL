@@ -63,13 +63,11 @@ div.projcover {
     position: absolute;
     width: 100%;
     text-align: center;
-    bottom: 55px;
-    color: #ccc;
-    line-height: 100%;
-}
-
-.projcover #author {
-    font-size: 16px;
+    bottom: 0;
+    color: #fff;
+    line-height: 32px;
+    padding: 80px 0 50px;
+    background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.666));
 }
 
 .contents h2 {

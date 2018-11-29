@@ -1,5 +1,4 @@
 Rede
-color: #fff;
 "images/xoxoNet.jpg"
 
 <div class="rede">

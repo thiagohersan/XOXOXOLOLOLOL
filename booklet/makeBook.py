@@ -29,24 +29,18 @@ if __name__ == "__main__":
 
             cHtml = ""
             cTitle = ""
-            cAuthor = ""
-            cTitleColor = "color: #000;"
 
             # expand the html and add to TOC list
             with open(fullPath) as txt:
                 for line in txt.read().splitlines():
                     if cTitle is "":
-                        titleAuthor = line.split(":")
-                        cTitle = titleAuthor[0].strip()
-                        cAuthor = titleAuthor[-1].strip() if len(titleAuthor) > 1 else ""
+                        cTitle = line
                         TOC += "				<li><a href=\"#ch%s\">%s</a></li>\n"%(str(idx), cTitle)
-                    elif line.startswith("color:"):
-                        cTitleColor = line.strip()
                     elif "images/" in line:
                         if cHtml is "":
                             cHtml += "        <div id=\"ch%s\" class=\"projcover\">\n"%str(idx)
                             cHtml += "            <img src=%s />\n"%line
-                            cHtml += "            <h2><span style=\"%s\">%s<br /><span id=\"author\">%s</span></span></h2>\n"%(cTitleColor, cTitle, cAuthor)
+                            cHtml += "            <h2>%s</h2>\n"%cTitle
                             cHtml += "        </div>\n"
                             cHtml += "        <div class=\"chapter\">\n" 
                             cHtml += "        <h1 class=\"chapter-title\">%s</h1>\n"%cTitle
