@@ -3,13 +3,20 @@ Digital
 
 Dados já não são mais apenas uma consequência de nossas atividades diárias, estão se tornando uma verdadeira moeda de troca simbólica, econômica e social. Deus ajuda quem mais compartilha, curte, posta, cutuca, tagueia, twitta...<br /><br />
 
+Data is not just a part of today’s commons, it’s becoming its currency: literally, figuratively, socially.And algorithms are at the center of the latest golden age of technocratic idealism.<br /><br />
+
 Conforme nossos dispositivos de comunicação e suas interfaces vão ficando cada vez mais rápidos, menores, integrados e simples de usar, como podemos garantir que nossas personalidades e intenções não serão optimizadas e eliminadas de nossas próprias interações?<br /><br />
 
-Podemos nos apropriar da lógica dessas interfaces para resignificar essas formas de interagir que estão cada vez mais banais e genéricas?<br />
+Como podemos nos apropriar dessas interfaces para resignificar essas formas de interagir que estão cada vez mais banais e genéricas?<br />
 
-"images/iLikeMe.jpg"
+"images/facebukkake_21.jpg"
 
 <div class="apps">
+<h2>Facebukkake</h2>
+I tried to investigate the relationship I have with my own image, and notions of self-representation by creating multiple accounts on a popular social-networking site, and then allowing different people to log into my accounts to augment/alter my personality. <br/><br/>
+
+Social networking profiles are the new self-portrait; and this was a way of getting other people to build a digital “portrait” of me while creating multiple, conflicting personalities in a way that isn’t any more unreal than a single profile.<br/><br/>
+
 <h2>iLikeMe (on facebook)</h2>
 Em 1968, Andy Warhol, supostamente, disse que "No futuro, todos terão seus quinze minutos de fama". O futuro é agora, e todos podemos ser famosos por quinze minutos na internet.<br/><br/>
 
@@ -19,6 +26,8 @@ iLikeMe (on facebook) é um aplicativo de auto-promoção e uma plataforma de in
 é um aplicativo para facebook que nos ajuda a quantificar o que sentimos pelos nossos amigos e amigas. O aplicativo lê toda a informação do perfil de um amigo ou amiga escolhido, e tenta dar <i>Like</i> em todoso os posts, fotos e comentários publicados ou tagueados pela pessoa escolhida.<br/><br/>
 
 Igual ao amor analógico, a quantidade de informação que você pode tocar usando esse aplicativo depende das configurações de privacidade da outra pessoa e quanto ela confia em você.<br/><br/>
+
+"images/iLikeMe.jpg"
 
 <h2>uLikeMe (on facebook)</h2>
 Em um mundo pós-privacidade, onde informação é compartilhada, coletada e organizada em quantidades e velocidades cada vez mais elevadas e surpreendentes, como podemos garantir que nossas personalidades digitais estão realmente sendo apreciadas por pessoas dentro de nossas redes sociais, e não apenas sendo utilizadas para fins publicitários e de vigilância? Apesar de estarmos sempre conectados, sabemos quando estamos falando sozinho?<br/><br/>
